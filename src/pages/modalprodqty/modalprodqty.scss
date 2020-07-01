@@ -1,0 +1,73 @@
+page-modalprodqty {
+    ion-header *{
+        background-color: black;
+        padding-top: 4%;
+        padding-bottom: 4%;
+        color:white !important;
+    }
+    .title
+    {
+        color:black;
+        font-size: 14pt;
+        font-weight: bold;
+        padding-left: 7px;
+    }
+    .container
+    {
+        text-align: left;
+    }
+    .total
+    {
+        font-size: 11pt;
+        font-weight: bold;
+        border-top: white solid 1px;
+        padding: 3%;
+        border-bottom: white solid 1px;
+        color:white;
+    }
+    .entrega
+    {
+        font-size: 10pt;
+        font-weight: bold;
+        padding:5%;
+        color:white;
+    }
+    .entregareloj
+    {
+        font-size: 10pt;
+        font-weight: bold;
+        color:white;
+    }
+    .text{
+        color:white;
+        font-size: 10pt;
+        font-weight: normal;
+    }
+    .completecontainer
+    {
+        background-color: black !important;
+         overflow-y: scroll !important;
+        text-align: left !important;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: block  !important;
+    }
+    .scroll-bar-indicator
+    {
+	  display: block  !important;
+    }
+   /* .my-fixed-item {
+        position: fixed;
+         bottom: 0px; width: 100%;
+        text-align: center;
+        word-wrap: break-word;
+    }*/
+    .cerrarbtn
+    {
+        text-align: center;
+    }
+   
+}

@@ -1,0 +1,189 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+<ion-content padding>
+ <!--BUTTONS-->
+ <ion-fab bottom left>
+  <button ion-fab color="light" [hidden]="EnableCloseBarTable == false && EnableCallMozo == false">
+    <ion-icon name="notifications-outline"></ion-icon>
+  </button>
+  <ion-fab-list side="top">
+    <!--EnableCloseOrder-->
+   <button ion-fab color="light" [hidden]="!EnableCloseBarTable" (click)="closeBarTable()"><ion-icon name="restaurant"></ion-icon></button>   
+  </ion-fab-list>
+  <ion-fab-list side="right">
+      <!--EnableCallMozo-->
+     <button ion-fab color="light" [hidden]="!EnableCallMozo" (click)="callMozo()"><ion-icon name="notifications-outline"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+<ion-fab bottom right #fab class="floatButton">
+   <button ion-fab color="light" [hidden]="isDisabledVP" (click)="goEditPedidoPage()"><ion-icon name="create"></ion-icon></button>
+</ion-fab>
+ <ion-fab bottom right>
+  <button ion-fab color="light" [hidden]="isDisabledNP == true && isDisabledVP == false">
+    <ion-icon name="add"></ion-icon>
+  </button>
+  <ion-fab-list side="top">
+    <!--EnableOrderQr-->
+    <button ion-fab color="light" [hidden]="!EnableOrderQr" (click)="goNuevoPedidoPage('EnableOrderQr')"><ion-icon name="qr-scanner"></ion-icon></button>
+    <!--EnableOrderWQr-->
+    <button ion-fab [hidden]="!EnableOrderWQr" (click)="goNuevoPedidoPage('EnableOrderWQr')"><ion-icon name="list-box" ></ion-icon></button>
+  </ion-fab-list>
+  <ion-fab-list side="left">
+    <!--EnableOrderToRetreat-->
+    <button ion-fab [hidden]="!EnableOrderToRetreat" (click)="goNuevoPedidoPage('EnableOrderToRetreat')"><ion-icon name="basket" (click)="goNuevoPedidoPage()"></ion-icon></button>  
+  </ion-fab-list>
+    </ion-fab>
+
+<!--BUTTONS-->
+
+    <!-- Titulo -->
+    <ion-grid>
+        <ion-row>
+            <ion-col class="titulo">
+                <h2>Mis Pedidos</h2>
+            </ion-col>
+        </ion-row>
+
+    <div *ngIf="sindatos">
+        <ion-col class="center">
+            <p>No has realizado ningun pedido aún.</p>
+            <p>Presiona el botón + para ingresar un nuevo pedido y escanea el código QR que se encuentra en la mesa.</p>
+        </ion-col>
+    </div>
+    <!-- Titulo End -->
+    <!-- NEW -->
+
+    <div *ngIf="verPedidosEnCurso">
+        <ion-row *ngFor="let value of gridDataConfirmado; let rowIndex=index">
+            <ion-col class="pedido-container">
+                <ion-col col-4>
+                    <div style="font-size: 2.2em;text-align: center"><ion-icon large name="time"></ion-icon></div>
+                    <div style="text-align: center" class="col-12">{{value.DelayTimeRange}}</div>
+                    <div style="text-align: center" class="col-12">{{value.OrderTypeName}}</div>
+                </ion-col><!-- End Status -->
+                <ion-col col-6>
+                    <div class="textdatatitle">Pedido en curso</div>
+                    <div class="textdata productos">
+                        <div *ngFor="let prod of value.OrderDetails">{{ prod.Quantity }} x {{ prod.ProductName }}</div>
+                    </div>
+                    <div class="textdata fecha">{{value.OrderDate | date: 'dd/MM/yyyy H:mm' }}</div>
+                    <div class="textdata precio">Total: <span>${{value.Total }}</span></div>
+                </ion-col><!-- End Data -->
+                <ion-col col-2>
+                    <div class="link">
+                        <button class="btnIcon" (click)="openModal('PedidoEnCurso',rowIndex)"><ion-icon name="search"></ion-icon></button>
+                    </div>
+                </ion-col><!-- End Action Icons-->
+            </ion-col>
+        </ion-row>
+    </div><!-- End pedidos en curso -->
+
+    <div *ngIf="verPedidosEntregados">
+        <ion-row *ngFor="let value of gridDataEntregado; let rowIndex=index">
+            <ion-col class="pedido-container">
+                <ion-col col-4>
+                    <div style="font-size: 2.2em;text-align: center"><ion-icon name="checkmark-circle-outline"></ion-icon></div>
+                    <div style="text-align: center" class="col-12">{{value.DelayTimeRange}}</div>
+                    <div style="text-align: center" class="col-12">{{value.OrderTypeName}}</div>
+                </ion-col><!-- End Status -->
+                <ion-col col-6>
+                    <div class="textdatatitle">Pedido entregado</div>
+                    <div class="textdata productos">
+                        <div *ngFor="let prod of value.OrderDetails">{{ prod.Quantity }} x {{ prod.ProductName }}</div>
+                    </div>
+                    <div class="textdata fecha">{{value.OrderDate | date: 'dd/MM/yyyy H:mm' }}</div>
+                    <div class="textdata precio">Total: <span>${{value.Total }}</span></div>
+                </ion-col><!-- End Data -->
+                <ion-col col-2>
+                    <div class="link">
+                        <button class="btnIcon" (click)="openModal('PedidoEntregado',rowIndex)"><ion-icon name="search"></ion-icon></button>
+                        <button *ngIf="puederepetir" class="btnIcon" (click)="RepetirPedido('PedidoEntregado',rowIndex)"><ion-icon name="sync"></ion-icon></button>
+                    </div>
+                </ion-col><!-- End Action Icons-->
+            </ion-col>
+        </ion-row>
+    </div><!-- End pedidos entregados -->
+
+    <div *ngIf="verPedidosRechazados">
+        <ion-row *ngFor="let value of gridDataRechazado; let rowIndex=index">
+            <ion-col class="pedido-container">
+                <ion-col col-4>
+                    <div style="font-size: 2.2em;text-align: center"><ion-icon name="close"></ion-icon></div>
+                    <div style="text-align: center" class="col-12">{{value.DelayTimeRange}}</div>
+                    <div style="text-align: center" class="col-12">{{value.OrderTypeName}}</div>
+                </ion-col><!-- End Status -->
+                <ion-col col-6>
+                    <div class="textdatatitle">Pedido rechazado</div>
+                    <div class="textdata productos">
+                        <div *ngFor="let prod of value.OrderDetails">{{ prod.Quantity }} x {{ prod.ProductName }}</div>
+                    </div>
+                    <div class="textdata fecha">{{value.OrderDate | date: 'dd/MM/yyyy H:mm' }}</div>
+                    <div class="textdata precio">Total: <span>${{value.Total }}</span></div>
+                </ion-col><!-- End Data -->
+                <ion-col col-2>
+                    <div class="link">
+                        <button class="btnIcon" (click)="openModal('PedidoRechazado',rowIndex)"><ion-icon name="search"></ion-icon></button>
+                        <button *ngIf="puederepetir" class="btnIcon" (click)="RepetirPedido('PedidoRechazado',rowIndex)"><ion-icon name="sync"></ion-icon></button>
+                    </div>
+                </ion-col><!-- End Action Icons-->
+            </ion-col>
+        </ion-row>
+    </div><!-- End pedidos rechazados -->
+
+    <div *ngIf="verPedidosCancelados">
+            <ion-row *ngFor="let value of gridDataCancelado; let rowIndex=index">
+                <ion-col class="pedido-container">
+                    <ion-col col-4>
+                        <div style="font-size: 2.2em;text-align: center"><ion-icon name="close"></ion-icon></div>
+                        <div style="text-align: center" class="col-12">{{value.DelayTimeRange}}</div>
+                        <div style="text-align: center" class="col-12">{{value.OrderTypeName}}</div>
+                    </ion-col><!-- End Status -->
+                    <ion-col col-6>
+                        <div class="textdatatitle">Pedido cancelado</div>
+                        <div class="textdata productos">
+                            <div *ngFor="let prod of value.OrderDetails">{{ prod.Quantity }} x {{ prod.ProductName }}</div>
+                        </div>
+                        <div class="textdata fecha">{{value.OrderDate | date: 'dd/MM/yyyy H:mm' }}</div>
+                        <div class="textdata precio">Total: <span>${{value.Total }}</span></div>
+                    </ion-col><!-- End Data -->
+                    <ion-col col-2>
+                        <div class="link">
+                            <button class="btnIcon" (click)="openModal('PedidoCancelado',rowIndex)"><ion-icon name="search"></ion-icon></button>
+                            <button *ngIf="puederepetir" class="btnIcon" (click)="RepetirPedido('PedidoCancelado',rowIndex)"><ion-icon name="sync"></ion-icon></button>
+                        </div>
+                    </ion-col><!-- End Action Icons-->
+                </ion-col>
+            </ion-row>
+        </div><!-- End pedidos cancelados -->
+
+    <!-- OLD 
+
+    <div *ngIf="verPedidosCancelados"> 
+        <div class="title" id="titlepedidoscancelados">Pedidos Cancelados</div>
+        <ion-grid md>
+            <ion-row *ngFor="let value of gridDataCancelado; let rowIndex=index" id="ion-row">
+                <ion-col col-4 class="left" >                 
+                   <ion-slides *ngIf="value.OrderDetails && value.OrderDetails.length" (ionSlideDidChange)="slideChanged()"
+                    effect="slide" loop=true speed="1000" autoplay="3000" >
+                      <ion-slide *ngFor="let slide of value.OrderDetails">
+                        <img src="{{slide.ImageUrl}}" alt="{{slide.ProductName}}" style=" width: 100%;" />
+                      </ion-slide>
+                   </ion-slides>
+                   <div style="font-size: 2.2em;text-align: center"><ion-icon large name="time"></ion-icon></div>
+                   <div style="text-align: center" class="col-12">{{value.OrderDateEnd | date: 'dd/MM/yyyy H:mm'}}</div> 
+                </ion-col>
+                <ion-col col-8>  
+                    <div class="textdata">{{value.BarAddress}}</div>
+                    <div class="textdata">{{value.OrderDate | date: 'dd/MM/yyyy H:mm' }}</div>
+                    <div class="textdata">{{value.DetailSummary }}</div>
+                    <div class="link"><ion-buttons end><button class="btnDetail2 shadow" outline ion-button (click)="openModal('PedidoCancelado',rowIndex)">Detalle</button>
+                    <button *ngIf="puederepetir" class="btnDetail2 shadow" outline ion-button (click)="RepetirPedido('PedidoCancelado',rowIndex)">Repetir</button></ion-buttons></div>               
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div *ngIf="verloadmoreCancelado" class="loadmorelink"><button clear class="loadmorelink" small ion-button (click)="loadmore('Cancelado')">Cargar mas...</button></div>
+    </div> OLD END-->
+
+</ion-grid>
+</ion-content>

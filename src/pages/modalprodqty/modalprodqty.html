@@ -1,0 +1,53 @@
+<!--
+  Generated template for the ModalprodqtyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.-->
+
+<ion-header>      
+            <ion-title>Detalle del Pedido</ion-title>               
+</ion-header>
+
+<ion-content class="completecontainer">
+   <!--<div class="title">Detalle del Pedido</div>--> 
+       <ion-grid>
+         <ion-row>
+          <!--<ion-col col-6>
+              <ion-slides *ngIf="orderdetails && orderdetails.length"
+              effect="slide" loop=true speed="1000" autoplay="3000" >
+                <ion-slide *ngFor="let slide of orderdetails">
+                  <img src="{{slide.ImageUrl}}" alt="{{slide.ProductName}}" style=" width: 100%;" />
+                 
+                </ion-slide>
+             </ion-slides> 
+           </ion-col>-->
+           <ion-col col-10>
+              <ion-grid md>
+                  <ion-row *ngFor="let value of detailsummaryitems; let rowIndex=index" >                          
+                    <ion-col >                 
+                        <div class="text">{{value}}</div>         
+                    </ion-col>                   
+                 </ion-row>
+              </ion-grid>
+           </ion-col>
+         </ion-row>
+         <ion-row *ngIf="verEntrega">
+            <ion-col col-2>
+                <div class="entregareloj" style="font-size: 2em;text-align: center">
+                <ion-icon large name="time"></ion-icon></div>
+            </ion-col>    
+            <ion-col col-10 >
+                <div class="entrega" >ENTREGA: {{delaytimerange}}</div>  
+            </ion-col>   
+               
+         </ion-row>
+         <div class="total"><ion-label stacked id="label">TOTAL: $ {{total}} </ion-label></div>
+       </ion-grid> 
+      <div class="cerrarbtn"><button ion-button clear (click)="closeModal()">CERRAR</button></div>                     
+    
+  <!--<button ion-button clear (click)="closeModal()">Cancelar</button>--> 
+
+  </ion-content>
+
+
+

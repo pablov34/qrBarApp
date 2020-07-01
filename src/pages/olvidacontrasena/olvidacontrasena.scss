@@ -1,0 +1,66 @@
+page-olvidacontrasena
+{
+
+
+    .text-input
+    {
+        height: 27px !important;
+    }
+    //Hasta aqui control de textbox
+
+    #container {
+        margin-left:auto; 
+        margin-right: auto;
+        // padding-top: 50vh;
+        // padding-top: 50px;
+    }
+
+    #label{
+        text-align: center; 
+        color: black;
+        font-size: 13pt;
+        font-weight: bolder
+    }
+    ::-webkit-scrollbar,
+ *::-webkit-scrollbar {
+ display: none;
+ }
+ ion-content{
+    //background-image: url('../../assets/imgs/1/004.jpg');
+    //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+    // margin-top: 50vh;
+ }
+   .logodivcontraseña
+    {
+        text-align: left;
+        width: 100%;
+    }
+    .logodivcontraseña img{
+        width:70% !important;
+    }
+    .logodivcontraseña button
+    {
+        background: transparent;
+    }
+    .btncenter
+    {
+     text-align: center !important;
+     font-size: 12px;
+    }
+    //tamaño de texto del title
+    .toolbar-title-md{
+        font-size: 17px !important;
+        margin-top: 3%;
+        text-align: center;
+    }
+    // .btnDetail{
+    //     font-size:1em !important;
+    //     font-weight: normal;
+    //     color: black;
+    //     border-color: black;
+    // }
+}

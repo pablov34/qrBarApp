@@ -1,0 +1,22 @@
+init-home {
+ ion-title *{
+     margin-top: 50vh;
+ }
+ ::-webkit-scrollbar,
+ *::-webkit-scrollbar {
+ display: none;
+ }
+ ion-content{
+    //background-image: url('../../assets/imgs/1/001_white.png');
+    //-webkit-background-image: url('../../assets/imgs/1/001_white.png');
+    background: #fff !important;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+ }
+
+ .initgrid
+ {
+//padding-top: 0px !important;
+ }
+}

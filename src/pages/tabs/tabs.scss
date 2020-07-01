@@ -1,0 +1,16 @@
+.tabs-md .tab-button[aria-selected=true]{
+    opacity: 0.8;
+    color: #000;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+    color: #000;
+}
+
+.tabs-md .tab-button , .tabs-md .tab-button .tab-button-icon{
+    color: #000;
+}
+
+.tabs-md .tab-button{
+    font-size: 13px;
+}

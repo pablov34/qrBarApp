@@ -1,0 +1,15 @@
+<ion-header>
+    <page-header></page-header>
+</ion-header>
+  <ion-content>
+      <div *ngIf="sindatos">
+          <img src="assets/imgs/1/001.jpg" alt="001" />
+      </div>
+      <ion-slides *ngIf="slideDataFromAPI && slideDataFromAPI.length" (ionSlideDidChange)="slideChanged()" 
+      effect="slide" pager=true loop="true" speed="1000" autoplay="10000" (ionSlideAutoplayStop)="ionSlideAutoplayStop()" >
+        <ion-slide *ngFor="let slide of slideDataFromAPI">
+          <img src="{{slide.ImageUrl}}" alt="{{slide.Name}}" style="height: 100%;" />
+          <span>{{slide.ImageUrl}}</span>
+        </ion-slide>
+      </ion-slides>
+  </ion-content>

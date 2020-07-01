@@ -1,0 +1,263 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+
+ion-content {
+    background-color: #EFEFEF !important;
+    font-family:'Roboto';
+}
+// For all modals open within 767px devices
+//modal backgroun opaco gris 
+@media (max-width: 767px) {
+    ion-modal.show-page {
+   // background-color: #0000006e;
+   background-color: rgba(17, 17, 17, 0.747) !important;
+    text-align: -webkit-center;
+   
+    }
+    
+    //modal page properties
+    .modal-wrapper {
+        width: 80%;
+        border-radius: 8px;
+        max-height: 70% !important;
+        margin-top: 20%;
+        overflow-y:block !important;        
+    }
+}
+
+.alert-wrapper {
+    background-color: black !important;
+    color:white !important;
+    text-align: center;
+}
+.alert-message
+{
+    color:white !important;
+    text-align: center;
+}
+
+//style del alert detalle pedido
+.textsummary{font-size: 10pt !important;}
+.entrega{
+    font-size: 10pt;
+    font-weight: bold;
+    padding-top:5%;
+    padding-bottom:5%;
+    color:white;
+}
+.entregareloj{
+    font-size: 10pt;
+    font-weight: bold;
+    color:white;
+}
+.total
+{
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 3%;
+    color:white;
+}
+.container
+{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+//style del alert detalle pedido
+
+/*background de header casi transparente*/
+.toolbar-background-md{
+    background-color: rgba(255, 255, 255, 0.382) !important;
+}
+
+//tamaño de texto del title
+.toolbar-title-md{
+    font-size: 20px !important;
+    margin-top: 3%;
+}
+
+//transparencia de footer
+.show-tabbar
+{
+    background-color: rgba(255, 255, 255, 0.382) !important;
+}
+// Quitar los logodiv cuando termine de migrar las vistas
+.logodiv
+{
+    text-align: right;
+    width: 100%;
+}
+.logodiv img{
+    width:70% !important;
+}
+.logodiv button
+{
+   background: transparent;
+}
+.headergrid
+{
+    padding: 0px !important;
+}
+ion-loading.my-loading-class {
+    .loading-wrapper {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+
+.backdrop.active //background oscuro para los popups
+{
+    z-index:11 !important; 
+}
+.center{
+    text-align: center;
+}
+.shadow{
+    box-shadow: 1px 1px 1px;
+}
+.btnDetail{
+    font-size:0.8em;
+    font-weight: normal;
+    color: sienna;
+    border-color: sienna;
+    background-color: rgba(255, 255, 255, 0.382) !important;
+}
+.btnDetail2{
+    font-size:1.2em;
+    color: sienna;
+    border-color: sienna;
+    background-color: rgba(255, 255, 255, 0.382) !important;
+}
+
+// Nuevos
+
+// Title
+.titulo{
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    margin: 10px 0;
+    padding: 10px;
+}
+.titulo h2{
+    color: #000;
+    text-align: center;
+    font-size: 17px;
+    margin: 0 !important;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+// End Title
+
+//Form
+.flex-item{
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    background: #fff;
+    padding: 0px;
+}
+.flex-item .input-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px 20px;
+}
+
+#rounded {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+#rounded input {
+    margin: 0px;
+    text-transform: none; //esto deberia poner todo en minusculas
+    text-align: center;
+}
+
+// btn detal new
+
+.btnDetail{
+    width: 100%;
+    font-size: 17px;
+    color: #000;
+    background: #fff !important;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    opacity: 1;
+    border: none;
+    margin: 0;
+}
+
+.floatButton{
+    // text-align: right;
+    // float: right;
+    // margin: 10px 10px;
+    // position: relative;
+    color: #f2f2f2;
+}
+
+ion-fab[bottom]{
+    bottom: 20px !important;
+}
+
+.btnIcon{
+    background: transparent;
+    margin: 10px 10px;
+}
+.btnIcon ion-icon{
+    font-size: 25px;
+    color: #000;
+}
+
+// ALERTS
+
+.alert-head{
+    text-align: center !important;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 15px !important;
+}
+.alert-md .alert-title{
+    font-size: 16px;
+}
+
+.alert-md .alert-sub-title{
+    font-size: 14px;
+    text-transform: none;
+}
+
+.alert-md .alert-button{
+    color: #fff;
+}
+.alert-md .alert-button-group{
+    justify-content: center;
+}
+.alert-md .alert-title h3{
+    font-size: 16px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.alert-md .alert-message{
+    overflow-y: auto;
+}
+.alert-md .alert-message .container{
+    overflow-y: auto !important;
+    text-align: center !important;
+}

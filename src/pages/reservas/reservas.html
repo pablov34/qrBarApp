@@ -1,0 +1,136 @@
+<ion-header>
+    <page-header></page-header>
+</ion-header>
+
+<ion-content padding>
+    <ion-fab bottom right #fab class="floatButton">
+        <button ion-fab color="light" (click)="goNuevaReserva()"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="titulo">
+                <h2>Mis Reservas</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngIf="sindatos">
+            <ion-col class="center">
+                <p>No has realizado ninguna reserva aún.</p>
+                <p>Presiona el botón + para solicitar una nueva reserva.</p>
+            </ion-col>
+        </ion-row>
+        <div *ngIf="verPendientes">
+            <ion-row *ngFor="let value of gridDataPendientes; let rowIndex=index">
+                <ion-col class="reserva-container">
+                    <ion-col col-4>                 
+                        <div style="font-size: 2.2em;text-align: center"><ion-icon large name="calendar"></ion-icon></div>
+                        <div style="text-align: center" class="col-12">{{value.ReserveDate | date: 'dd/MM/yyyy H:mm' }}</div>         
+                    </ion-col><!-- End status -->
+                    <ion-col col-6>
+                        <div class="textdatatitle">Reserva pendiente</div>
+                        <div class="textdata">{{value.BarAddress}}</div>
+                        <div class="textdata">Cantidad de Personas: {{value.Persons}} </div>
+                    </ion-col> <!-- End data -->
+                    <ion-col col-2>
+                        <div class="link">
+                            <button class="btnIcon" (click)="editReserva('Pendiente',rowIndex)"><ion-icon name="create"></ion-icon></button>
+                            <button class="btnIcon" (click)="deleteReserva('Pendiente',rowIndex)"><ion-icon name="trash"></ion-icon></button>
+                        </div> 
+                    </ion-col><!-- end action icons -->
+                </ion-col><!-- End container-->
+            </ion-row>
+        </div><!-- End ver pendientes -->
+
+    <div *ngIf="verAceptadas">
+        <ion-row *ngFor="let value of gridDataAceptadas; let rowIndex=index">
+            <ion-col class="reserva-container">
+                <ion-col col-4>                 
+                    <div style="font-size: 2.2em;text-align: center"><ion-icon large name="checkmark-circle-outline"></ion-icon></div>
+                    <div style="text-align: center" class="col-12">{{value.ReserveDate | date: 'dd/MM/yyyy H:mm' }}</div>         
+                </ion-col><!-- end status -->
+                <ion-col col-6>    
+                    <div class="textdatatitle">Reserva confirmada</div>
+                    <div class="textdata">{{value.BarAddress}}</div>
+                    <div class="textdata">Cantidad de Personas: {{value.Persons}} </div>
+                </ion-col><!-- End data -->
+                <ion-col col-2>
+                    <div class="link">
+                        <button class="btnIcon" (click)="editReserva('Aceptada',rowIndex)"><ion-icon name="create"></ion-icon></button>
+                        <button class="btnIcon" (click)="deleteReserva('Aceptada',rowIndex)"><ion-icon name="trash"></ion-icon></button>
+                    </div>
+                </ion-col><!-- end action icons -->
+            </ion-col><!-- End container-->
+        </ion-row>
+    </div><!-- End ver Aceptadas-->
+
+    <div *ngIf="verRechazadas">
+        <ion-row *ngFor="let value of gridDataRechazadas; let rowIndex=index">
+            <ion-col class="reserva-container">
+                <ion-col col-4>                 
+                    <div style="font-size: 2.2em;text-align: center"><ion-icon large name="close"></ion-icon></div>
+                    <div style="text-align: center" class="col-12">{{value.ReserveDate | date: 'dd/MM/yyyy H:mm' }}</div>         
+                </ion-col><!-- end status -->
+                <ion-col col-6>     
+                    <div class="textdatatitle">Reserva rechazada</div>
+                    <div class="textdata">{{value.BarAddress}}</div>
+                    <div class="textdata">Cantidad de Personas: {{value.Persons}} </div>
+                </ion-col><!-- End data -->
+                <ion-col col-2>
+                    <div class="link">
+                        <button class="btnIcon" (click)="editReserva('Rechazada',rowIndex)"><ion-icon name="create"></ion-icon></button>
+                        <button class="btnIcon" (click)="deleteReserva('Rechazada',rowIndex)"><ion-icon name="trash"></ion-icon></button>
+                    </div>
+                </ion-col><!-- end action icons -->
+            </ion-col><!-- End container-->
+        </ion-row>
+        <div *ngIf="verloadmoreRechazadas" class="loadmorelink"><button clear class="loadmorelink" small ion-button (click)="loadmore('Rechazada')">Cargar mas...</button></div>
+      </div><!-- End ver Rechazadas-->
+
+      <div *ngIf="verFinalizadas">
+              <ion-row *ngFor="let value of gridDataFinalizadas; let rowIndex=index">
+                <ion-col class="reserva-container">
+                    <ion-col col-4>                 
+                        <div style="font-size: 2.2em;text-align: center"><ion-icon large name="checkmark-circle-outline"></ion-icon></div>
+                        <div style="text-align: center" class="col-12">{{value.ReserveDate | date: 'dd/MM/yyyy H:mm' }}</div>         
+                    </ion-col><!-- End status -->
+                    <ion-col col-6>     
+                        <div class="textdatatitle">Reserva finalizada</div>
+                        <div class="textdata">{{value.BarAddress}}</div>
+                        <div class="textdata">Cantidad de Personas: {{value.Persons}} </div>
+                    </ion-col><!-- End data -->
+                    <ion-col col-2>
+                        <div class="link">
+                            <button class="btnIcon" (click)="editReserva('Finalizada',rowIndex)"><ion-icon name="sync"></ion-icon></button>
+                        </div>
+                    </ion-col><!-- end action icons -->
+                </ion-col><!-- End container -->
+              </ion-row>
+          <div *ngIf="verloadmoreFinalizadas" class="loadmorelink"><button clear class="loadmorelink" small ion-button (click)="loadmore('Finalizada')">Cargar mas...</button></div>
+        </div><!-- End ver finalizadas-->
+
+        <div *ngIf="verCanceladas">
+                <ion-row *ngFor="let value of gridDataCanceladas; let rowIndex=index">
+                    <ion-col class="reserva-container">
+                        <ion-col col-4>                 
+                            <div style="font-size: 2.2em;text-align: center"><ion-icon large name="close"></ion-icon></div>
+                            <div style="text-align: center" class="col-12">{{value.ReserveDate | date: 'dd/MM/yyyy H:mm' }}</div>         
+                        </ion-col><!-- End status -->
+                        <ion-col col-6>
+                            <div class="textdatatitle">Reserva cancelada</div>
+                            <div class="textdata">{{value.BarAddress}}</div>
+                            <div class="textdata">Cantidad de Personas: {{value.Persons}} </div>
+                        </ion-col><!-- End data -->
+                        <ion-col col-2>
+                            <div class="link">
+                                <button class="btnIcon" (click)="deleteReserva('Cancelada',rowIndex)"><ion-icon name="trash"></ion-icon></button>
+                            </div>
+                        </ion-col><!-- End action icons -->
+                    </ion-col><!-- End container-->
+                </ion-row>
+            <div *ngIf="verloadmoreCanceladas" class="loadmorelink"><button clear class="loadmorelink" small ion-button (click)="loadmore('Finalizada')">Cargar mas...</button></div>
+          </div><!-- End ver canceladas -->
+
+    <ion-label style="color: green; font-weight: bold">{{sMessage}}</ion-label>
+    <ion-label style="color: red; font-weight: bold">{{sErrorMessage}}</ion-label>
+</ion-grid><!-- End Grid -->
+
+</ion-content>

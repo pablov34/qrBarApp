@@ -1,0 +1,82 @@
+<ion-header>
+    <page-header [backButtonId] = 3></page-header>
+</ion-header>
+<ion-content padding>
+  <ion-grid id="container">
+    <ion-row>
+        <ion-col class="titulo">
+            <h2>{{sTitle}} {{sTitle2}}</h2>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <ion-item class="flex-item">
+                <ion-label stacked id="label"><ion-icon name="person"></ion-icon></ion-label>
+                <ion-input [(ngModel)]="sNombre"  placeholder="NOMBRE Y APELLIDO" id="rounded" type="text" ></ion-input>
+          </ion-item><!-- End Input Nombre-->
+      </ion-col>
+    </ion-row>
+      <ion-row>
+        <ion-col>
+            <ion-item class="flex-item">
+                <ion-label stacked id="label"><ion-icon name="call"></ion-icon></ion-label>
+                <ion-input [(ngModel)]="sTel"  placeholder="TELÉFONO" id="rounded" type="tel" ></ion-input>
+            </ion-item><!-- End Input TEL-->
+        </ion-col>
+      </ion-row> 
+       <ion-row>
+           <ion-col>
+                <ion-item class="flex-item">
+                    <ion-label stacked id="label"><ion-icon name="people"></ion-icon></ion-label>
+                    <ion-input [(ngModel)]="sCantPersonas"  placeholder="CANTIDAD DE PERSONAS" id="rounded" type="number" ></ion-input>
+                   <!-- <ion-multi-picker placeholder="CANTIDAD DE PERSONAS" cancelText="Cancelar" doneText="Aceptar" [(ngModel)]="sCantPersonas"
+                       item-content [multiPickerColumns]="simpleColumns" id="rounded"></ion-multi-picker> -->
+                </ion-item><!-- End Input cantidad de personas-->
+              <!--<ion-input (click)="selectANumber()"  class="rounded" type="number" [(ngModel)]="sCantPersonas" placeholder="Ingrese cantidad de personas"></ion-input>
+              -->
+           </ion-col>
+       </ion-row>
+       <ion-row>
+          <ion-col>
+            <ion-item class="flex-item">
+                <ion-label stacked id="label"><ion-icon name="calendar"></ion-icon></ion-label>
+                <!--<ion-label stacked id="label"></ion-icon></ion-label>
+                <ion-input [(ngModel)]="myReserveDate"  placeholder="Fecha de reserva" id="rounded" type="datetime" ></ion-input>-->
+                <ion-datetime class="rounded maxinput" doneText="Aceptar" cancelText="Cancelar" 
+                displayFormat="DDDD DD MMM YYYY HH:mm" pickerFormat="DDD/MMM/YYYY HH mm" [(ngModel)]="myReserveDate"
+                yearValues="2018,2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030" min="2018-10-10" 
+                dayShortNames="Dom,Lun,Mar,Mie,Jue,Vie,Sab,Dom" 
+                monthShortNames="Ene,Feb,Mar,Abr,May,Jun,Jul,Ago,Sep,Oct,Nov,Dic"
+                dayNames="Domingo, Lunes, Martes, Miercoles, Jueves, Viernes, Sabado, Domingo"></ion-datetime>
+            </ion-item><!-- End Input Date-->
+          </ion-col>
+      </ion-row>
+       <ion-row>
+           <ion-col class="message">
+              <ion-label class="item item-text-wrap" style="color: green; font-weight: bold">{{sMessage}}</ion-label>
+              <ion-label class="item item-text-wrap" style="color: red; font-weight: bold">{{sErrorMessage}}</ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <div class="center">
+                    <button outline ion-button class="btnDetail shadow" (click)="addNuevaReserva()">Enviar</button> 
+                  </div>
+            </ion-col>
+            <ion-col col-12>
+                    <div class="center">
+                        <button outline ion-button class="btnDetail shadow" (click)="cancelNuevaReserva()">Cancelar</button>
+                      </div>
+                </ion-col>
+        </ion-row>
+  </ion-grid>
+  <!-- <div id="divcontainer"> 
+        <button ion-button clear large strong style="color: black" (click)="addNuevaReserva()">Enviar</button> 
+        <button ion-button round outline (click)="addNuevaReserva()" >             
+        ENVIAR
+      </button> -->
+      <!-- <button ion-button round outline (click)="cancelNuevaReserva()" >             
+      CANCELAR
+    </button> 
+ </div> -->
+</ion-content>

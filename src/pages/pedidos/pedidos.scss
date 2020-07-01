@@ -1,0 +1,136 @@
+page-pedidos {
+
+
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+    ion-content{
+    //    background-image: url('../../assets/imgs/1/004.jpg');
+    //    -webkit-background-image: url('../../assets/imgs/1/004.jpg');
+       background-color: #f2f2f2;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-attachment: fixed;
+       // margin-top: 50vh;
+    }
+    .stitle
+    {
+        // color:black;
+        font-size: 12pt;
+        // font-weight: bold;
+        // padding-left: 5px;
+        margin-left: -5px;
+        padding-top: 5px
+    }
+    .title
+    {
+        color:black;
+        font-size: 11pt;
+        font-weight: bold;
+        padding-left: 7px;
+    }
+    .textdatatitle
+    {
+        color:black;
+        font-size: 11pt;
+        font-weight: bold;
+    }
+    .textdata
+    {
+        color:gray;
+        font-size: 9pt;
+        font-weight: normal;
+    }
+    .link
+    {
+        padding-top: 5px;
+        font-size: 7pt;
+        font-weight: normal;
+        
+    }
+    .loadmorelink
+    {
+        text-align: center;
+        color:black;
+        font-size: 9pt;
+        font-weight: bold;
+    }
+    .left
+    {
+        border-right: 1pt solid gray;
+    }
+
+    .btncenter
+    {
+        text-align: center;
+    }
+    // .btnDetail{
+    //     font-size:1.2em;
+    //     color: sienna;
+    //     border-color: sienna;
+    // }
+    .logodivpedidos
+    {
+        text-align: left;
+        width: 100%;
+    }
+    .logodivpedidos img{
+        width:63% !important;
+    }
+    //tamaño de texto del title
+    .toolbar-title-md{
+        font-size: 17px !important;
+        margin-top: 3%;
+        text-align: center;
+    }
+
+    #sindata
+    {
+        background-color: rgba(255, 255, 255, 0.582);
+        background-blend-mode: overlay;
+        border-radius: 15px;
+       //background:#e9eff5; 
+       border-bottom: solid 1px lightgrey;
+       padding: 5%;
+       margin: 3px;
+    }
+
+    /*alert*/
+    .entrega
+    {
+        font-size: 10pt;
+        font-weight: bold;
+        padding:5%;
+        color:white;
+    }
+    .entregareloj
+    {
+        font-size: 10pt;
+        font-weight: bold;
+        color:white;
+    }
+    .pedido-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+    .precio{
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #000;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .precio span{
+       color: green;
+    }
+    .productos{
+        margin: 5px 0;
+    }
+}

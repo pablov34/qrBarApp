@@ -1,0 +1,63 @@
+page-micuenta {
+    //control de textbox
+    .rounded {
+        background-color:white;
+        font-size: 17px;
+    }
+    #rounded input {
+        
+    }
+    .text-input
+    {
+        height: 27px !important;
+        //text-transform: lowercase; //esto deberia poner todo en minusculas
+        margin: 0px !important;
+    }
+    //Hasta aqui control de textbox
+
+
+    #container {
+        margin-left:auto; 
+        margin-right: auto; 
+        //padding-top: 50vh;
+        text-align: center; 
+    }
+
+    #label{
+        text-align: center; 
+        color: black;
+        font-size: 14pt;
+        font-weight: bolder
+    }
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+    ion-content{
+       //background-image: url('../../assets/imgs/1/004.jpg');
+       //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+       background-color: #f2f2f2;
+       color: #f2f2f2;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-attachment: fixed;
+       // margin-top: 50vh;
+    }
+    .btncenter
+    {
+        text-align: center !important;
+    }
+
+    //tamaño de texto del title
+    .toolbar-title-md{
+        font-size: 17px !important;
+        margin-top: 8%;
+        text-align: center;
+    }
+    // .btnDetail{
+    //     font-size:1em !important;
+    //     font-weight: normal;
+    //     color: black;
+    //     border-color: black;
+    // }
+}

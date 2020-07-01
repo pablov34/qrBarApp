@@ -1,0 +1,125 @@
+page-registro {
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+
+    ion-content{
+       //background-image: url('../../assets/imgs/1/004.jpg');
+       //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+       background-color: #f2f2f2;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-attachment: fixed;
+       // margin-top: 50vh;
+    }
+   //control de textbox
+
+   // Title
+   .titulo h2{
+    background: #fff;
+    color: #000;
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    margin: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+// End Title
+.flex-item{
+    border-radius: 3px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    background: #fff;
+    padding: 0px;
+}
+.flex-item .input-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0px 20px;
+}
+
+#rounded {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+#rounded input {
+    margin: 0px;
+    text-transform: none; //esto deberia poner todo en minusculas
+    text-align: center;
+}
+
+    .text-input
+    {
+        height: 27px !important;       
+    }
+    #roundedemail
+    {
+        background-color:white;
+        font-size: 17px;
+    }
+    #roundedemail input
+    {
+        margin: 0px;   
+        text-transform: lowercase; //esto deberia poner todo en minusculas
+    }
+    //Hasta aqui control de textbox
+
+    #container {
+        margin-left:auto; 
+        margin-right: auto; 
+        //margin-top: 20vh;
+        
+    }
+
+    #label{
+        text-align: center; 
+        color: black;
+        font-size: 14pt;
+        font-weight: bolder
+    }
+    .logodivregistro
+    {
+        text-align: left;
+        width: 100%;
+    }
+    .logodivregistro button
+    {
+        background: transparent;
+    }
+    .logodivregistro img{
+        width:70% !important;
+    }
+    .btncenter
+    {
+     text-align: center !important;
+     font-size: 12px;
+    }
+    .btnDetail{
+        width: 100%;
+        font-size: 17px;
+        color: #000;
+        background: #fff !important;
+        box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+        opacity: 1;
+        border: none;
+        margin: 0;
+        display: block;
+    }
+    .termsandconditions
+    {
+        color: black;
+        font-size: 13px;
+        padding: 0px !important;
+        text-align: center;
+    }
+    .toggle-md .toggle-icon
+    {
+        height: 40% !important;
+        margin-top: -10% !important;
+    }
+}

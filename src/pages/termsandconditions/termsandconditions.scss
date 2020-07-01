@@ -1,0 +1,43 @@
+page-termsandconditions {
+    .btncenter
+    {
+     text-align: center !important;
+     font-size: 12px;
+    }
+    //tamaño de texto del title
+    .toolbar-title-md{
+        font-size: 15px !important;
+        margin-top: 3%;
+        text-align: center;
+    }
+    #container {
+        width: 300px; 
+        text-align: left;
+        margin-left:auto; 
+        margin-right: auto;
+       // margin-top: 20vh; 
+        // padding-top: 50vh;
+        // padding-top: 50px;
+    } 
+    ion-content{
+        //background-image: url('../../assets/imgs/1/004.jpg');
+        //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+        background-color: #f2f2f2;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-attachment: fixed;
+        // margin-top: 50vh;
+     }
+     .logodivterms
+    {
+        text-align: left;
+        width: 100%;
+    }
+    .logodivterms button
+    {
+        background: transparent;
+    }
+    .logodivterms img{
+        width:63% !important;
+    }
+}

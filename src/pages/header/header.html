@@ -1,0 +1,21 @@
+<ion-navbar hideBackButton >
+    <ion-grid sm class="headergrid">
+        <ion-row>
+            <ion-col *ngIf="backButtonId > 0" col-4 class="atras" (click)="setGoToPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-col>
+            <!-- back btn -->
+            <ion-col *ngIf="backButtonId == 0" col-4>
+            </ion-col>
+            <!-- Dummy -->
+            <ion-col col-4 class="logodiv">
+                <ion-title>
+                    <div><img src="{{ logoImg }}" alt= "Logo" /></div>
+                </ion-title>
+            </ion-col>
+            <ion-col col-4>
+                <!-- add btn -->
+            </ion-col>
+        </ion-row>
+    </ion-grid>  
+</ion-navbar>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Bares
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid md>
+      <ion-row *ngFor="let value of gridDataFromAPI" style="background:#e9eff5" class="cont-rows">
+          <ion-col col-4 justify-content-center>
+              <img src="{{value.ImageUrl}}" style="max-height: 50%; max-width: 50%; margin: 18px 0;" />
+            </ion-col>
+          <ion-col col-4 justify-content-center align-items-center>
+              <a href="{{value.Url}}" target="_blank">{{value.Name}}</a>
+            </ion-col>
+            <ion-col col-4 justify-content-center align-items-center>
+                <a href="{{value.Location}}" target="_blank"><img src="assets/icon/maps-icon.png" /></a>
+            </ion-col>
+      </ion-row>
+  </ion-grid>
+ 
+</ion-content>

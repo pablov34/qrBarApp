@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "197650182813",
+    "firebase_url": "https://fir-test-3ffe6.firebaseio.com",
+    "project_id": "fir-test-3ffe6",
+    "storage_bucket": "fir-test-3ffe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197650182813:android:48f798a18c2fbecd",
+        "android_client_info": {
+          "package_name": "techtonik.tech.bar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197650182813-3j688fjueo4o6djpf4rniihs6l2mneh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgaYM1OXw-8W6B-5_OECPFQAZeF0wBes0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

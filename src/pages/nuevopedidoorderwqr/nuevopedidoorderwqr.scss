@@ -1,0 +1,184 @@
+page-nuevopedidoorderwqr {
+    #ion-icon-add {
+        font-size: 30px; //Preferred size here
+        color:green;
+    }
+
+    #ion-icon-remove {
+        font-size: 30px; //Preferred size here
+        color:red;
+    }
+
+    #ion-icon-delete
+    {
+        font-size: 30px; //Preferred size here
+        color:black;
+    }
+
+    #ion-row
+    {
+        background-color: #fff;
+        border-radius: 3px;
+       margin: 10px 0;
+       box-shadow: 0px 3px 6px rgba(85, 76, 76, 0.16);
+       overflow: hidden;
+       max-height: 160px;
+    }
+
+    .link .btnDetail{
+        margin-bottom: 0 !important;
+    }
+
+    #pedido .btnDetail{
+        margin-bottom: 10px;
+    }
+
+    .product-image{
+        position: relative;
+        padding:0 ;
+        margin: 0;
+    }
+    .product-image img{
+        object-fit: cover;
+        vertical-align: top;
+        height: 100%;
+    }
+    .product-info{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.16);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .product-info span{
+        text-align: center;
+        display: block;
+        margin: 10px 10px;
+    }
+    .product-name{
+        padding: 10px;
+        background: rgba(255,255,255,0.8);;
+        border-radius: 3px;
+        color: #000;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .contenedor-izq{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .product-desc{
+        margin: 10px 0;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+
+    .contenedor-izq .cant-container{
+        margin-bottom:10px;
+    }
+
+    .precio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .precio span{
+        color: green;
+        font-weight: 600;
+        margin-left: 5px;
+        vertical-align: bottom;
+    }
+
+    .c
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+    ion-content{
+       //background-image: url('../../assets/imgs/1/004.jpg');
+       //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+       background: #fff;
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-attachment: fixed;
+       // margin-top: 50vh;
+    }
+
+    // .btnDetail{
+    //     font-size:1em;
+    //     color: black;
+    //     border-color: black;
+    // }
+     //tamaño de texto del title
+     .toolbar-title-md{
+        font-size: 17px !important;
+        margin-top: 3%;
+        text-align: center
+    }
+
+    .link
+    {
+        padding-top: 5px;
+        font-size: 11pt;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    .item-md //importante esto controla el nuevo number selector 
+    {
+        width: 80% !important;
+        background: transparent !important;  
+        vertical-align: top;
+    }
+
+    #ion-row-prod
+    {
+        background-color: #fff;
+        background-blend-mode: overlay;
+        box-shadow: 0px 3px 6px rgba(85, 76, 76, 0.16);
+        border-radius: 3px;
+       //background:#e9eff5; 
+       padding: 5px;
+       margin: 10px 0;
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;    }
+
+    #ion-col-prod
+    {
+        font-size: 11pt;
+    }
+    .multi-picker-text
+    {
+        font-size: 14px !important;
+    }
+    .btnRounded{
+        background: #fff;
+        color: #000;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 50%;
+        height:50px;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cant-container ion-col{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

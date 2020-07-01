@@ -1,0 +1,45 @@
+page-home {
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+  display: none;
+  }
+  ion-content{
+     //background-image: url('../../assets/imgs/1/004.jpg');
+     //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+     background-color: #f2f2f2;
+     background-repeat: no-repeat;
+     background-size:cover;
+     background-attachment: fixed;
+     // margin-top: 50vh;
+  }
+}
+
+ //tamaño de texto del title
+ .toolbar-title-md{
+    font-size: 17px !important;
+    margin-top: 3%;
+    text-align: center;
+}
+//tamaño de texto del title
+.toolbar-title-md{
+    font-size: 17px !important;
+    margin-top: 8%;
+    text-align: center;
+}
+// .black-background{
+//     background-color: black;
+// }
+
+// .slide-image {
+//   height: 100%;
+//     //max-height: 100%;
+//     //max-width: 60%;
+//     margin: 0 0;
+//   }
+
+  .slide-zoom {
+		//height:530px;
+		height: 100%;
+        // overflow:hidden;
+        background-color: black !important;
+	}

@@ -1,0 +1,28 @@
+
+//Back btn
+.atras{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 20px;
+    cursor: pointer;
+} 
+
+.atras ion-icon{
+    height: auto;
+    font-size: 30px;
+}
+
+// Header logo
+
+
+.logodiv
+{
+    text-align: center;
+    width: 100%;
+}
+.logodiv img{
+    width:70% !important;
+}

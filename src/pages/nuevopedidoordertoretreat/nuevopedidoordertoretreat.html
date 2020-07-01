@@ -1,0 +1,139 @@
+<!--<ion-header>
+ <ion-navbar hideBackButton>
+  <ion-grid sm class="headergrid">
+    <ion-row>
+        <ion-col col-4 class="logodivnuevopedido">
+            <div><img src="assets/imgs/Logo2.png" /></div>
+         </ion-col>
+         <ion-col col-4>
+            <ion-title>
+               Nuevo <br> Pedido
+              </ion-title>
+        </ion-col>
+        <ion-col col-4 class="logodiv">
+            <div><img src="/assets/imgs/logo.png" /></div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-navbar>
+</ion-header>
+-->
+<ion-header>
+    <page-header *ngIf="verpedido == true" [backButtonId] = 2 ></page-header>
+</ion-header>
+<ion-header>
+    <page-header *ngIf="verpedido == false"></page-header>
+</ion-header>
+<ion-content padding>
+    <ion-fab bottom right #fab class="floatButton" *ngIf="verpedido == false">
+      <button ion-fab color="light" (click)="volver()"><ion-icon name="return-right"></ion-icon></button>
+    </ion-fab>
+  <!--<ion-title>{{sTitle | uppercase}}</ion-title>-->
+
+  <!-- Pedido Nuevo -->
+
+    <div id="pedido" *ngIf="verpedido == true">
+        <ion-grid>
+        <div class="link">
+          <!--<button ion-button outline *ngIf="loaded" class="btnDetail shadow" (click)="scan()">Agregar</button>-->
+          <button ion-button outline *ngIf="loaded" class="btnDetail" (click)="btnaddproductwqr()">Agregar más productos</button>
+        </div>
+      
+          <div md *ngIf="selectedScanedProducts && selectedScanedProducts.length">
+            <ion-row *ngFor="let value of selectedScanedProducts; let rowIndex=index" id="ion-row">
+              <ion-col class="product-image" col-5 style="background-image:url('{{value.ImageUrl}}');">
+                  <img *ngIf="value.ImageUrl" src="{{value.ImageUrl}}">
+                  <div class="product-info">
+                    <span class="product-name">{{value.Name}}</span>
+                  </div>
+                </ion-col>
+                <ion-col col-7 class="contenedor-izq">
+                    <ion-row>
+                        <p class="product-desc">{{value.Description}}</p>
+                    </ion-row>
+                    <ion-row class="cant-container" no-padding>
+                      <ion-col col-5 no-padding>
+                          <button *ngIf="loaded" class="btnRounded" (click)="remunit(rowIndex)"><ion-icon name="remove"></ion-icon></button>
+                      </ion-col>
+                      <ion-col col-2 style="text-align:center;">
+                          {{value.Qty}}
+                      </ion-col>
+                      <ion-col col-5 no-padding>
+                          <button *ngIf="loaded" class="btnRounded" (click)="addunit(rowIndex)"><ion-icon name="add"></ion-icon></button>
+                      </ion-col>
+                    </ion-row><!-- End Cant Container-->
+                    <ion-row>
+                      <ion-col col-8 class="precio">
+                        TOTAL: <span>$ {{value.Price}}</span>
+                      </ion-col>
+                      <ion-col col-4>
+                        <button ion-button clear small (click)="delete(rowIndex)"><ion-icon id="ion-icon-delete" name="trash"></ion-icon></button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>                           
+                <!--<ion-col col-3> multipicker old
+                <ion-item>
+                    <ion-multi-picker cancelText="Cancelar" doneText="Aceptar" [(ngModel)]="value.Qty"
+                      item-content [multiPickerColumns]="simpleColumns" (ngModelChange)="onModelChange(rowIndex)"></ion-multi-picker>
+                </ion-item>
+                </ion-col>-->
+            </ion-row>
+            </div>
+        
+          <!--<ion-card *ngIf="productFound">
+              <ion-card-header>
+                <h2>Price: $ {{selectedProduct.Price}}</h2>
+              </ion-card-header>
+              <ion-card-content>
+                <ul>
+                  <li>{{selectedProduct.Id}}</li>
+                  <li>{{selectedProduct.Name}}</li>
+                  <li>{{selectedProduct.Description}}</li>
+                </ul>
+              </ion-card-content>
+          </ion-card>-->
+          <ion-buttons end>
+          <button class="btnDetail" ion-button outline *ngIf="selectedScanedProducts && selectedScanedProducts.length" (click)="sendpedido()">Enviar Pedido $ ({{sConfirmar}})</button>
+    
+         <button class="btnDetail" ion-button outline *ngIf="selectedScanedProducts && selectedScanedProducts.length" (click)="cancelpedido()">Cancelar</button>
+         </ion-buttons>
+          <!--<ion-textarea [(ngModel)]="sTest"></ion-textarea>-->
+        </ion-grid>
+      </div><!-- End ID=pedido-->
+    
+  <ion-grid>
+    <div id="addproductssinqr" *ngIf="verpedido == false">
+      <!--<ion-row class="link">
+        <button ion-button outline *ngIf="loaded" class="btnDetail shadow" (click)="volver()">Volver</button>
+      </ion-row>-->
+      <ion-row>
+          <ion-col class="titulo">
+              <h2>Listado de productos</h2>
+          </ion-col>
+      </ion-row>
+      <div md *ngIf="productswithqty && productswithqty.length">
+        <ion-row *ngFor="let value of productswithqty; let rowIndex=index" id="ion-row-prod" >
+          <ion-col col-5 id="ion-col-prod" >
+              {{value.Name}}
+            </ion-col> 
+            <ion-col col-2 id="ion-col-prod" >
+              ${{value.Price}}
+            </ion-col>
+            <ion-col col-5 no-padding>
+              <ion-row class="cant-container" no-padding>
+                <ion-col col-5 no-padding>
+                    <button *ngIf="loaded" class="btnRounded" (click)="quitarprod(rowIndex)"><ion-icon name="remove"></ion-icon></button>
+                </ion-col>
+                <ion-col col-2 style="text-align:center;">
+                    {{value.Qty}}
+                </ion-col>
+                <ion-col col-5 no-padding>
+                    <button *ngIf="loaded" class="btnRounded" (click)="anadirprod(rowIndex)"><ion-icon name="add"></ion-icon></button>
+                </ion-col>
+              </ion-row><!-- End Cant Container-->
+            </ion-col> 
+        </ion-row>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

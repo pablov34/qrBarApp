@@ -1,0 +1,85 @@
+page-nuevareserva {
+
+    ion-datetime.rounded{
+        max-width: 250px;
+        font-size: 10pt;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 400;
+        position: relative;
+        z-index: 1;
+    }
+
+    #ion-icon-delete
+    {
+        font-size: 30px; //Preferred size here
+        color:black;
+    }
+    #label{
+        text-align: left; 
+        color: black;
+        font-size: 13pt;
+        font-weight: bolder;
+    }
+
+    .text-input
+    {
+        height: 27px !important;
+        //text-transform: lowercase; //esto deberia poner todo en minusculas
+        margin: 0px !important;
+    }
+
+    #container {
+        margin-left:auto; 
+        margin-right: auto; 
+       // padding-top: 50vh;
+        
+    }
+    #divcontainer
+    {
+        width: 70%;
+        margin-left:auto; 
+        margin-right: auto;  
+    }
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+    display: none;
+    }
+    ion-content{
+       //background-image: url('../../assets/imgs/1/004.jpg');
+       //-webkit-background-image: url('../../assets/imgs/1/004.jpg');
+       background-color: #f2f2f2; 
+       background-repeat: no-repeat;
+       background-size:cover;
+       background-attachment: fixed;
+       // margin-top: 50vh;
+    }
+    .center{
+        text-align: center
+    }
+    // .btnDetail{
+    //     font-size:1em !important;
+    //     color: black;
+    //     border-color: black;
+    // }
+
+    //tamaño de texto del title
+    .toolbar-title-md{
+        font-size: 17px !important;
+        margin-top: 3%;
+        text-align: center;
+    }
+
+    // Mensajes 
+
+    .message .item{
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .flex-item .input-wrapper {
+        padding: 0px 10px;
+    }
+}

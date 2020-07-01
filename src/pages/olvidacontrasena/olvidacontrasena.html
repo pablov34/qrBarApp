@@ -1,0 +1,27 @@
+<ion-header>
+    <page-header [backButtonId] = 1></page-header>
+</ion-header>
+<ion-content padding center text-center>
+    <ion-grid id="container">
+            <ion-row>
+                <ion-col class="titulo">
+                    <h2>¿Olvido su contraseña?</h2>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="mail"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sEmail"  placeholder="INGRESE SU EMAIL" id="rounded" type="email" ></ion-input>
+                    </ion-item><!-- End Input Mail-->
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="center">
+                 <button outline ion-button class="btnDetail shadow" (click)="enviar()">SOLICITAR NUEVA CLAVE</button>
+                 <p>Recibira un correo electrónico con su nueva contraseña.</p>
+                 <p>Una vez recupere el acceso a su cuenta, podra cambiar la contraseña desde el panel "Mi Cuenta".</p> 
+                </ion-col>
+            </ion-row>
+        </ion-grid>  
+</ion-content>

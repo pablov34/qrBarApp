@@ -1,0 +1,19 @@
+{
+"CantidadPedidosPendientesPermitidos":3,
+"CantidadReservasPendientesPermitidos":3,
+"CantidadPedidosRechazadosInicial":3,
+"CantidadPedidosEntregadosInicial":3,
+"CantidadPedidosCanceladosInicial":3,
+"CantidadReservasRechazadasInicial":3,
+"CantidadReservasAceptadasInicial":3,
+"CantidadReservasCanceladasInicial":3,
+"CantidadReservasFinalizadasInicial":3,
+"BarId":"1",
+"ColorFondo":"#f2f2f2",
+"ApiUrlPath":"http://www.techtonicit.tech/qrBarApi/api/",
+"Timeoutval":30000,
+"Hideloadingtimeout":20000,
+"Hideloadingtimeoutaltas":50000,
+"TermsAndConditions":"Texto completo con todos los terminos y condiciones en html",
+"EnablePedidoAsistencia":"true" 
+}

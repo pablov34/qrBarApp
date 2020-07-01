@@ -1,0 +1,66 @@
+<ion-header>
+    <page-header [backButtonId] = 1></page-header>
+</ion-header>
+<ion-content padding>
+    <ion-grid id="container">
+        <ion-row>
+            <ion-col class="titulo">
+                <h2>Crear cuenta</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="person"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sNombre"  placeholder="NOMBRE" id="rounded" type="text" ></ion-input>
+                </ion-item><!-- End Input Nombre-->
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="person"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sApellido"  placeholder="APELLIDO" id="rounded" type="text" ></ion-input>
+                </ion-item><!-- End Input APELLIDO-->
+            </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+                <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="mail"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sEmail"  placeholder="EMAIL" id="rounded" type="email" ></ion-input>
+                </ion-item><!-- End Input Mail-->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="call"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sTel"  placeholder="TELÉFONO" id="rounded" type="tel" ></ion-input>
+                </ion-item><!-- End Input TEL-->
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item class="flex-item">
+                        <ion-label stacked id="label"><ion-icon name="key"></ion-icon></ion-label>
+                        <ion-input [(ngModel)]="sPassword"  placeholder="CLAVE" id="rounded" type="password" ></ion-input>
+                </ion-item><!-- End Input Pass-->
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-2 ><!--no-padding no-margin-->
+                        <!--<ion-checkbox [(ngModel)]="agreed"></ion-checkbox>-->
+                <ion-toggle [(ngModel)]="agreed"></ion-toggle>
+            </ion-col>
+            <ion-col col-10>    
+                  <button ion-button clear outline class="termsandconditions" (click)="goToTermsAndConditions()" >Acepte los <span style="color:rgb(70, 70, 243); margin-left: 6px;text-decoration: underline"> terminos y condiciones</span></button>                        
+            </ion-col>               
+        </ion-row>
+        <ion-row>
+            <ion-col>
+             <button outline ion-button class="btnDetail shadow" (click)="registrar()" style="color: black">REGISTRARSE</button>   
+            </ion-col>
+          </ion-row>
+    </ion-grid>
+</ion-content>
